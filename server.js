@@ -1,6 +1,5 @@
 var http = require('http');
 var express = require('express');
-var request = require('request');3
 
 var app = express(app);
 app.use(express.static(__dirname));
