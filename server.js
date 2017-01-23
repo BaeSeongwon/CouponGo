@@ -4,7 +4,7 @@ var express = require('express');
 var app = express(app);
 app.use(express.static(__dirname));
 
-http.createServer(app).listen(3000,function(){
+http.createServer(app).listen(80,function(){
   console.log("서버 실행 포트는 3000!!");
 });
 
