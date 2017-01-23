@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>쿠폰 C~발</title>
-    <script src="//apis.daum.net/maps/maps3.js?apikey=448677ad4ecc24375b2a77ae94ac087e"></script>
+    <!-- <script src="//apis.daum.net/maps/maps3.js?apikey=448677ad4ecc24375b2a77ae94ac087e"></script> -->
+    <script src="//apis.daum.net/maps/maps3.js?apikey=448677ad4ecc24375b2a77ae94ac087e&libraries=services"></script>
     <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
@@ -52,38 +53,51 @@
         </div>
       </div>
     </nav>
+
+    <!-- 카테고리 버튼 -->
+    <div class="geobtn category-detail" ng-click="main.category = !main.category">
+      <span class="glyphicon glyphicon-list-alt geobtn-gly"></span>
+    </div>
+
     <!-- 현재 좌표 버튼 -->
-    <div class="geobtn" ng-click="main.setLocation(35.160235,129.1666219)">
+    <div class="geobtn geobtn-detail" ng-click="main.setLocation(35.160235,129.1666219)">
       <span class="glyphicon glyphicon-screenshot geobtn-gly"></span>
     </div>
+
     <div id="map"></div>
-    <article>
-      <ul id="category">
-        <li id="BK9" data-order="0">
-          <span class="category_bg bank"></span>
-          은행
-        </li>
-        <li id="MT1" data-order="1">
-          <span class="category_bg mart"></span>
-          마트
-        </li>
-        <li id="PM9" data-order="2">
-          <span class="category_bg pharmacy"></span>
-          약국
-        </li>
-        <li id="OL7" data-order="3">
-          <span class="category_bg oil"></span>
-          주유소
-        </li>
-        <li id="CE7" data-order="4">
-          <span class="category_bg cafe"></span>
-          카페
-        </li>
-        <li id="CS2" data-order="5">
-          <span class="category_bg store"></span>
+    <table class="category-table table in-visible" ng-class="main.category ? 'fadeInUp animated visible' : 'fadeOutDown animated in-visible'">
+      <tr id="category">
+        <td class="category-td" id="CS2" data-order="5">
+          <span class="glyphicon glyphicon-barcode category-gly"></span>
+          <br>
           편의점
-        </li>
-      </ul>
-    </article>
+        </td>
+        <td class="category-td" id="BK9" data-order="0">
+          <span class="glyphicon glyphicon-usd category-gly"></span>
+          <br>
+          은행
+        </td>
+        <td class="category-td" id="MT1" data-order="1">
+          <span class="glyphicon glyphicon-shopping-cart category-gly"></span>
+          <br>
+          마트
+        </td>
+        <td class="category-td" id="PM9" data-order="2">
+          <span class="glyphicon glyphicon-erase category-gly"></span>
+          <br>
+          약국
+        </td>
+        <td class="category-td" id="OL7" data-order="3">
+          <span class="glyphicon glyphicon-tint category-gly"></span>
+          <br>
+          주유소
+        </td>
+        <td class="category-td" id="CE7" data-order="4">
+          <span class="glyphicon glyphicon-bell category-gly"></span>
+          <br>
+          카페
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
