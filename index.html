@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>쿠폰 C~발</title>
+    <script src="//apis.daum.net/maps/maps3.js?apikey=448677ad4ecc24375b2a77ae94ac087e"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+    <script src="app.module.js" charset="utf-8"></script>
+    <script src="main/main.controller.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="bower_components/animate.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-controller="mainCtrl as main">
+    <article class="sideMenue" ng-class="main.sideCheck ? 'fadeInLeft animated' : 'fadeOutLeft animated'">
+      <ul>
+        <li>
+          <img src="public/img/profile.png" class="profile">
+          <span class="menueText">로그인하세요</span>
+        </li>
+        <hr>
+        <li>
+          <span class="glyphicon glyphicon-book menueGly"></span>
+          <span class="menueText">쿠폰 북</span>
+        </li>
+        <li>
+          <span class="glyphicon glyphicon-star-empty menueGly"></span>
+          <span class="menueText">즐겨 찾기</span>
+        </li>
+        <li>
+          <span class="glyphicon glyphicon-pushpin menueGly"></span>
+          <span class="menueText">공지 사항</span>
+        </li>
+        <hr>
+        <li>
+          <img src="public/img/kakao.png" alt="" class="profile">
+          <span class="menueText">공유</span>
+        </li>
+        <li ng-click="main.sideCheck=false">
+          <span class="glyphicon glyphicon-menu-left menueGly"></span>
+          <span class="menueText">닫기</span>
+        </li>
+      </ul>
+    </article>
+    <nav>
+      <div>
+        <span class="glyphicon glyphicon-menu-hamburger gly" ng-click="main.sideCheck = true"></span>
+        <div class="nav-mid-content hc">
+          <span class="nav-mid-content-text">부산 해운대 팔래드 시즈</span>
+        </div>
+      </div>
+    </nav>
+    <!-- 현재 좌표 버튼 -->
+    <div class="geobtn" ng-click="main.setLocation(35.160235,129.1666219)">
+      <span class="glyphicon glyphicon-screenshot geobtn-gly"></span>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>

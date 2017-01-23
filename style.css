@@ -1,0 +1,118 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+nav{
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+  background-color: white;
+}
+
+li{
+  list-style: none;
+  padding: 10px 10px 10px 10px;
+}
+
+ul{
+  padding: 0px;
+}
+
+hr{
+  margin: 0px;
+}
+
+.gly{
+  font-size: 18px;
+}
+
+#map{
+  widows: 100%;
+  height: calc(100% - 43.2px);
+}
+
+.geobtn{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  padding-top: 11px;
+  background-color: white;
+  border-radius: 100px;
+  z-index: 100;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.geobtn-gly{
+  font-size: 22px;
+  color: #909090;
+}
+
+.sideMenue{
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 99;
+}
+
+.profile{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.menueGly{
+  font-size: 16px;
+  color: #1A9DFA;
+  margin-right: 10px;
+}
+
+.menueText{
+  font-size: 16px;
+}
+
+.ng-hide{
+  left: 0px;
+}
+
+.nav-mid-content{
+  position: absolute;
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  background-color: #DEDAD3;
+  padding: 2px 0px 2px 0px;
+  border-radius: 10px;
+}
+
+.nav-mid-content-text{
+  font-size: 10px;
+}
+
+.hc {
+  width:200px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.vc {
+  height:40px;
+  top: 0;
+  bottom:0;
+  margin-top:auto;
+  margin-bottom:auto;
+}
