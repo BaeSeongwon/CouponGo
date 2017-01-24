@@ -38,10 +38,11 @@
   }
 
   function getLoginInfo(){
-    return LoginInfo.id;
+    console.log(this.LoginInfo);
+    return this.LoginInfo.id;
   }
 
   function setLoginInfo(id){
-    LoginInfo.id = id;
+    this.LoginInfo.id = id;
   }
 })();
