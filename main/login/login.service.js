@@ -25,7 +25,7 @@
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       };
-      $.http(info).success(function(data){
+      $http(info).success(function(data){
           console.log(data);
           return data;
       })
