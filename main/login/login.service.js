@@ -9,13 +9,12 @@
   function loginService($http){
     var service = {
       login:login,
-      getLoginInfo:getLoginInfo,
-      setLoginInfo:setLoginInfo
+      getLoginInfo:getLoginInfo
     }
 
     return service;
 
-    var login = {
+    var getLoginInfo = {
       id: null
     };
 
@@ -32,7 +31,7 @@
         }
       };
       $http(info).then(function(data){
-        service.login = data.data;
+        service.getLoginInfo = data.data;
       });
     }
   }
