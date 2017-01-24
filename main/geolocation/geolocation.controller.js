@@ -5,9 +5,9 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = ['loginService','$cookies'];
+  mainCtrl.$inject = ['loginService','$cookies','couponService'];
 
-  function mainCtrl(loginService,$cookies){
+  function mainCtrl(loginService,$cookies,couponService){
 
     // 변수 선언부
     var main = this;
@@ -21,6 +21,7 @@
     main.moveBookmark = moveBookmark;
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
+    main.getCoupon = getCoupon;
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
@@ -242,7 +243,7 @@
       }else{
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-      content += '<span class="tel">'+place.phone+'</span> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
+      content += '<span class="tel">'+place.phone+'</span> <button type="button" ng-click="main.getCoupon('+ place.title +')" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
                 +'<div class="after"></div>';
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new daum.maps.LatLng(place.latitude, place.longitude));
@@ -260,6 +261,10 @@
     function getId(){
       main.loginInfo = $cookies.get('id');
       console.log($cookies);
+    }
+
+    function getCoupon(title){
+      console.log(couponService.getCoupon(title));
     }
   }
 })();
