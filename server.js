@@ -157,7 +157,7 @@ app.post('/my_coupon' , function (req,res,next) {
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
 
-                  suc+=sucs[0].co_image;
+                  suc.push(sucs[0].co_image);
 
                   if(suc.length==data.length){
                     console.log(suc);
