@@ -22,11 +22,16 @@
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
     main.getCoupon = getCoupon;
+    main.imgSrc = "";
 
     $("#getCoupon").click(function(){
       console.log("sss");
       couponService.getCoupon();
     })
+
+    $scope.$watch('main.imgSrc', function(current, original) {
+      console.log(current);
+   });
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
@@ -248,7 +253,7 @@
       }else{
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-      content += '<span class="tel">'+place.phone+'</span> <button type="button" onclick="$.post(\'/send\',{data:\''+place.title+'\'},function(data){console.log(data)});" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
+      content += '<span class="tel">'+place.phone+'</span> <button type="button" onclick="$.post(\'/send\',{data:\''+place.title+'\'},function(data){main.imgSrc = data;});" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
                 +'<div class="after"></div><script></script>';
       contentNode.innerHTML = content;
       console.log(contentNode);

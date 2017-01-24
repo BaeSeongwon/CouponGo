@@ -50,7 +50,7 @@ app.post('/send' ,function (req,res,next) {
 
   console.log(req.body.data);
 
-  var a = "세븐일레븐";
+  var a ="세븐일레븐";
   var b="CU";
   var c="스타벅스";
 
@@ -63,7 +63,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"세븐일레븐",
       co_date:"2017년1월31일",
       co_content:"오리온)초코칩쿠키1500원",
-      co_image:"c:\User\Parksubin\Web"
+      co_image:"../../public/coupon/세븐일레븐.png"
     };
     res.send(data);
   }
@@ -72,7 +72,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"CU",
       co_date:"2017년1월31일",
       co_content:"맥심top아메리카노1100원",
-      co_image:"c:\User\Parksubin\Web"
+      co_image:"../../public/img/CU.png"
     };
 
     res.send(data);
@@ -83,7 +83,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"스타벅스",
       co_date:"2017년1월31일",
       co_content:"패션티 레모네이드 피지오 5400원",
-      co_image:"c:\User\Parksubin\Web"
+      co_image:"../../public/스타벅스.png"
     };
 
     res.send(data);
