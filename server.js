@@ -176,11 +176,8 @@ app.post('/Login',function (req,res) {
         console.log("10000");
         res.send("아이디가 존재하지 않습니다.");
       }
-console.log("key확인");
-console.log(db.key_password);
-console.log(db.key_id);
 
-      else if(user.password==db.key_password&&user.id===db.key_id)
+      else if(user.password===db.key_password&&user.id===db.key_id)
       {
         console.log("20000");
         req.session.user_id = user.id;
@@ -191,6 +188,9 @@ console.log(db.key_id);
       }
       else if (user.password===db.key_password||user.id===db.key_id)
       {
+        console.log("key확인");
+        console.log(db.key_password);
+        console.log(db.key_id);
         console.log("30000");
         res.send("다시한번 확인 해주세요.");
       }
