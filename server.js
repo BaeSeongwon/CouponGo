@@ -39,13 +39,6 @@ app.use(session({
 }));
 
 http.createServer(app).listen(80,function(){
-  connection.connect(function(err){
-    if(err){
-      console.log("실패 ㅠㅠ");
-    }else{
-      console.log("DB 실행 완료");
-    }
-  })
   console.log("서버 실행 포트는 3000!!");
 });
 
