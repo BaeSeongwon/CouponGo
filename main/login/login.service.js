@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-         .serivce('loginService',loginService);
+         .service('loginService',loginService);
 
   loginService.$inject = ['$http'];
 
