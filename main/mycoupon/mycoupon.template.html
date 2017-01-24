@@ -9,15 +9,9 @@
     </div>
   </nav>
   <ul>
-    <li style="border-bottom: 1px solid #EDEDED;">
+    <li style="border-bottom: 1px solid #EDEDED;" ng-repeat="data in myCoupon.data">
       <div style="display:inline-block; margin-right:20px;">
-        <img src=data[0]. alt="" style="background-size:cover; width: 40px; height:40px;">
-      </div>
-      <div style="display:inline-block;">
-        세븐 일레븐
-      </div>
-      <div style="float:right; padding-top:16px;">
-        <spasn class="glyphicon glyphicon-menu-right"></span>
+        <img src="{{data}}" alt="" style="background-size:cover; width: 40px; height:40px;">
       </div>
     </li>
   </ul>
