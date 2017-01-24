@@ -145,14 +145,15 @@ var name= "parker";
 
     connection.query(sql,name,function (err,data)
 {
-
-
+  console.log("data길이 확인");
+  console.log(data.length);
   var suc = [];
   var judge= 0;
 
   for (var i = 0; i < data.length; i++) {
 
-  var sql2 = "select co_name,co_date,co_content,co_img where id=?";
+
+  var sql2 = "select co_name,co_date,co_content,co_img from Coupon where id=?";
 
     connection.query(sql2,name,function (err,data)
       {
