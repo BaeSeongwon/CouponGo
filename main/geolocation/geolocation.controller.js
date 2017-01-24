@@ -17,6 +17,8 @@
     main.sideCheck = false;
     main.setLocation = setLocation;
     main.category = false;
+    main.moveLogin = moveLogin;
+    main.moveBookmark = moveBookmark;
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
@@ -37,9 +39,6 @@
 
     // 커스텀 오버레이 컨텐츠를 설정합니다
     placeOverlay.setContent(contentNode);
-
-
-
 
     // 마커를 담을 배열입니다
     var markers = [];
@@ -104,10 +103,7 @@
     // 각 카테고리에 클릭 이벤트를 등록합니다
     function addCategoryClickEvent() {
       var category = document.getElementById('category');
-
       var children = category.children;
-      console.log(children)
-
       for (var i=0; i<children.length; i++) {
         children[i].onclick = onClickCategory;
       }
@@ -124,11 +120,9 @@
 
     // 카테고리를 클릭했을 때 호출되는 함수입니다
     function onClickCategory() {
-      var id = this.id,
-              className = this.className;
-
+      var id = this.id;
+      var className = this.className;
       placeOverlay.setMap(null);
-
       if (className === 'on') {
         currCategory = '';
         changeCategoryClass();
@@ -145,11 +139,9 @@
       var category = document.getElementById('category');
       var children = category.children;
       var i;
-
       for ( i=0; i<children.length; i++ ) {
         children[i].className = '';
       }
-
       if (el) {
         el.className = 'on';
       }
@@ -160,13 +152,10 @@
       if (!currCategory) {
         return;
       }
-
       // 커스텀 오버레이를 숨깁니다
       placeOverlay.setMap(null);
-
       // 지도에 표시되고 있는 마커를 제거합니다
       removeMarker();
-
       ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true});
     }
 
@@ -181,15 +170,12 @@
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
     function placesSearchCB( status, data, pagination ) {
       if (status === daum.maps.services.Status.OK) {
-
         // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
         displayPlaces(data.places);
       } else if (status === daum.maps.services.Status.ZERO_RESULT) {
         // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
-
       } else if (status === daum.maps.services.Status.ERROR) {
         // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-
       }
     }
 
@@ -220,64 +206,52 @@
 
     // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
     function addMarker(position, order ,kk) {
-      console.log(position.hb);
-      console.log("첫번쨰");
-
-
       if(position.hb==kk){
-
         var first = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png';
       }
-
       else {
         var first='https://cdn0.iconfinder.com/data/icons/entypo/98/small28-32.png';
       }
       var imageSrc =first , // 마커 이미지 url, 스프라이트 이미지를 씁니다
-
               imageSize = new daum.maps.Size(27, 28),  // 마커 이미지의 크기
               imgOptions =  {
                 spriteSize : new daum.maps.Size(72, 208), // 스프라이트 이미지의 크기
                 spriteOrigin : new daum.maps.Point(10, (order*36)), // 스프에서라이트 이미지 중 사용할 영역의 좌상단 좌표
                 offset: new daum.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내의 좌표
               },
-
               markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-
               marker = new daum.maps.Marker({
-
                 position: position, // 마커의 위치
                 image: markerImage
               });
-
       marker.setMap(map); // 지도 위에 마커를 표출합니다
-
-
       markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
       return marker;
     }
 
     // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
     function displayPlaceInfo (place) {
-      console.log("?")
       var content = '<div class="placeinfo">' +
-              '   <a class="title" href="' + place.placeUrl + '" target="_blank" title="' + place.title + '">' + place.title + '</a>';
-
-      if (place.newAddress) {
-        content += '    <span title="' + place.newAddress + '">' + place.newAddress + '</span>' +
-                '  <span class="jibun" title="' + place.address + '">(지번 : ' + place.address + ')</span>';
-      }  else {
-        content += '    <span title="' + place.address + '">' + place.address + '</span>';
+                      '<a class="title" href="'+place.placeUrl+'"target="_blank" title="'+place.title+'">'+place.title+'</a>';
+      if(place.newAddress){
+        content += '<span title="'+place.newAddress+'">'+place.newAddress+'</span>'+
+                   '<span class="jibun" title="' + place.address + '">(지번 : ' + place.address + ')</span>';
+      }else{
+        content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-
-      content += '    <span class="tel">' + place.phone + '</span> <form action="http://10.1.116.130:3000/send" method="post"><input type="hidden" name="data" id="data" value='+place.title+'><button type="submit" class="btn btn-info">쿠폰 발급 받기</button></form>' +
-            '</div>' +
-            '<div class="after"></div>';
-      console.log(content);
+      content += '<span class="tel">'+place.phone+'</span> <form style="text-align:center;" action="http://10.1.116.130:3000/send" method="post"><input type="hidden" name="data" id="data" value='+place.title+'><button type="submit" class="btn btn-info">쿠폰 발급 받기</button></form>'+'</div>'
+                +'<div class="after"></div>';
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new daum.maps.LatLng(place.latitude, place.longitude));
-      console.log(map);
       placeOverlay.setMap(map);
     }
+
+    function moveLogin(){
+      window.location.href = "http://ec2-52-78-41-172.ap-northeast-2.compute.amazonaws.com/#!/login";
+    }
+
+    function moveBookmark(){
+      window.location.href = "http://ec2-52-78-41-172.ap-northeast-2.compute.amazonaws.com/#!/bookmark"
+    }
   }
-})()
+})();

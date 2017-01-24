@@ -1,0 +1,87 @@
+<div ng-controller="mainCtrl as main" style="width:100%; height:100%;">
+  <div class="shadow" ng-class="main.shadow ? 'shadow-block' : 'shadow-none'"></div>
+  <article class="sideMenue" ng-class="main.sideCheck ? 'fadeInLeft animated' : 'fadeOutLeft animated'">
+    <ul>
+      <li ng-click="main.moveLogin()">
+        <img src="public/img/profile.png" class="profile">
+        <span class="menueText">로그인하세요</span>
+      </li>
+      <hr>
+      <li>
+        <span class="glyphicon glyphicon-book menueGly"></span>
+        <span class="menueText">쿠폰 북</span>
+      </li>
+      <li ng-click="main.moveBookmark()">
+        <span class="glyphicon glyphicon-star-empty menueGly"></span>
+        <span class="menueText">즐겨 찾기</span>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-pushpin menueGly"></span>
+        <span class="menueText">공지 사항</span>
+      </li>
+      <hr>
+      <li>
+        <img src="public/img/kakao.png" alt="" class="profile">
+        <span class="menueText">공유</span>
+      </li>
+      <li ng-click="main.sideCheck=false; main.shadow=false">
+        <span class="glyphicon glyphicon-menu-left menueGly"></span>
+        <span class="menueText">닫기</span>
+      </li>
+    </ul>
+  </article>
+  <nav>
+    <div>
+      <span class="glyphicon glyphicon-menu-hamburger gly" ng-click="main.sideCheck = true; main.shadow=true"></span>
+      <div class="nav-mid-content hc">
+        <span class="nav-mid-content-text">부산 해운대 팔래드 시즈</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 카테고리 버튼 -->
+  <div class="geobtn category-detail" ng-click="main.category = !main.category; main.shadow = !main.shadow">
+    <span class="glyphicon glyphicon-list-alt geobtn-gly"></span>
+  </div>
+
+  <!-- 현재 좌표 버튼 -->
+  <div class="geobtn geobtn-detail" ng-click="main.setLocation(35.160235,129.1666219)">
+    <span class="glyphicon glyphicon-screenshot geobtn-gly"></span>
+  </div>
+
+  <div id="map"></div>
+  <table class="category-table table in-visible" ng-class="main.category ? 'fadeInUp animated visible' : 'fadeOutDown animated in-visible'">
+    <tr id="category">
+      <td class="category-td" id="CS2" data-order="5">
+        <span class="glyphicon glyphicon-barcode category-gly"></span>
+        <br>
+        편의점
+      </td>
+      <td class="category-td" id="BK9" data-order="0">
+        <span class="glyphicon glyphicon-usd category-gly"></span>
+        <br>
+        은행
+      </td>
+      <td class="category-td" id="MT1" data-order="1">
+        <span class="glyphicon glyphicon-shopping-cart category-gly"></span>
+        <br>
+        마트
+      </td>
+      <td class="category-td" id="PM9" data-order="2">
+        <span class="glyphicon glyphicon-erase category-gly"></span>
+        <br>
+        약국
+      </td>
+      <td class="category-td" id="OL7" data-order="3">
+        <span class="glyphicon glyphicon-tint category-gly"></span>
+        <br>
+        주유소
+      </td>
+      <td class="category-td" id="CE7" data-order="4">
+        <span class="glyphicon glyphicon-bell category-gly"></span>
+        <br>
+        카페
+      </td>
+    </tr>
+  </table>
+</div>
