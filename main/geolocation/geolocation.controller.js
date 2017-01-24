@@ -258,7 +258,7 @@
     }
 
     function getId(){
-      // main.loginInfo = $cookies.get('id');
+      main.loginInfo = $cookies.get('id');
       console.log($cookies);
     }
   }
