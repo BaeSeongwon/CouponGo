@@ -180,7 +180,7 @@ console.log("key확인");
 console.log(db.key_password);
 console.log(db.key_id);
 
-      else if(user.password==db.key_password&&user.id==db.key_id)
+      else if(user.password==db.key_password&&user.id===db.key_id)
       {
         console.log("20000");
         req.session.user_id = user.id;
