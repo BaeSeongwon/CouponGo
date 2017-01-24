@@ -15,7 +15,7 @@
     return service;
 
     var getLoginInfo = {
-      id: null
+      id: ''
     };
 
     function login(id,pw){
