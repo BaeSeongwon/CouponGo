@@ -104,35 +104,35 @@ app.post('/resend' ,function (req,res,next) {
   var con_content = req.body.co_content;
   console.log(co_name);console.log(co_image);console.log(co_date);console.log(con_content);
 
-  //
-  // pool.getConnection(function (err,connection) {
-  //
-  //   var data =[co_name,co_date,con_content,co_image];
-  //   var sql = "insert into Coupon(co_name,co_date,co_content,co_image) values(?)";
-  //
-  //   connection.query(sql,[data],function (err, data) {
-  //
-  //     if (err) console.error("err : " + err);
-  //
-  //     console.log(data);
-  //
-  //     key=data.insertId;
-  //     var name = "parker";
-  //     var data2=[name,key];
-  //
-  //     var sql2 = "insert into User_Coupon(id,coupon_id) values(?)";
-  //
-  //     connection.query(sql2,[data2],function (err,data) {
-  //
-  //     console.log(data);
-  //
-  //     res.send("Coupon suc!");
-  //
-  //       connection.release();
-  //     });
-  //
-  //   });
-  //   });
+
+  pool.getConnection(function (err,connection) {
+
+    var data =[co_name,co_date,con_content,co_image];
+    var sql = "insert into Coupon(co_name,co_date,co_content,co_image) values(?)";
+
+    connection.query(sql,[data],function (err, data) {
+
+      if (err) console.error("err : " + err);
+
+      console.log(data);
+
+      key=data.insertId;
+      var name = "parker";
+      var data2=[name,key];
+
+      var sql2 = "insert into User_Coupon(id,coupon_id) values(?)";
+
+      connection.query(sql2,[data2],function (err,data) {
+
+      console.log(data);
+
+      res.send("Coupon suc!");
+
+        connection.release();
+      });
+
+    });
+    });
 });
 
 app.post('/my_coupon' , function (req,res,next) {

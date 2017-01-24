@@ -276,10 +276,10 @@
 
     function getCouponData(){
       var data = {
-        co_name: $("#acquire").attr('co_name'),
-        co_date: $('#acquire').attr('co_date'),
-        co_content: $("#acquire").attr('co_content'),
-        co_image: $("#acquire").attr('src')
+        co_name: $("#img").attr('co_name'),
+        co_date: $('#img').attr('co_date'),
+        co_content: $("#img").attr('co_content'),
+        co_image: $("#img").attr('src')
       };
       console.log(data);
       $.post('/resend',data,function(data){
