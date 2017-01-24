@@ -63,7 +63,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"세븐일레븐",
       co_date:"2017년1월31일",
       co_content:"오리온)초코칩쿠키1500원",
-      co_image:"../../public/coupon/seven.png"
+      co_image:"../../public/img/coupon/seven.png"
     };
     res.send(data);
   }
@@ -72,7 +72,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"CU",
       co_date:"2017년1월31일",
       co_content:"맥심top아메리카노1100원",
-      co_image:"../../public/img/CU.png"
+      co_image:"../../public/img/coupon/CU.png"
     };
 
     res.send(data);
@@ -83,7 +83,7 @@ app.post('/send' ,function (req,res,next) {
       co_name:"스타벅스",
       co_date:"2017년1월31일",
       co_content:"패션티 레모네이드 피지오 5400원",
-      co_image:"../../public/star.png"
+      co_image:"../../public/img/coupon/star.png"
     };
 
     res.send(data);
