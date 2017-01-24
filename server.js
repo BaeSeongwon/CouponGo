@@ -154,7 +154,7 @@ var name= "parker";
 
   var sql2 = "select co_name,co_date,co_content,co_img where id=?";
 
-    connection.query(sql,name,function (err,data)
+    connection.query(sql2,name,function (err,data)
       {
 
         console.log("data확인");
