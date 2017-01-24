@@ -22,7 +22,7 @@
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
     main.getCoupon = getCoupon;
-    main.imgSrc = "";
+    main.imgSrc = "?";
 
     $("#getCoupon").click(function(){
       console.log("sss");
