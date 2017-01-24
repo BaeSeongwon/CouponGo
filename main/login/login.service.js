@@ -15,7 +15,9 @@
 
     return service;
 
-    var test = "머시여";
+    var login = {
+      id: null
+    };
 
     function login(id,pw){
       var info = {
@@ -30,17 +32,8 @@
         }
       };
       $http(info).then(function(data){
-
+        service.login = data.data;
       });
     }
-  }
-
-  function getLoginInfo(){
-    console.log(this.test);
-    return this.LoginInfo.id;
-  }
-
-  function setLoginInfo(id){
-    this.LoginInfo.id = id;
   }
 })();
