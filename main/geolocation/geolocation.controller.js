@@ -242,7 +242,7 @@
       }else{
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-      content += '<span class="tel">'+place.phone+'</span> <form style="text-align:center;" action="http://10.1.116.130:3000/send" method="post"><input type="hidden" name="data" id="data" value='+place.title+'><button type="submit" class="btn btn-info">쿠폰 발급 받기</button></form>'+'</div>'
+      content += '<span class="tel">'+place.phone+'</span> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
                 +'<div class="after"></div>';
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new daum.maps.LatLng(place.latitude, place.longitude));
