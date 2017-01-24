@@ -94,83 +94,119 @@ app.post('/resend' ,function (req,res,next) {
     var sql = "insert into Coupon(co_name,co_date,co_content,co_image) values(?)";
 
     connection.query(sql,[data],function (err, data) {
+
       if (err) console.error("err : " + err);
+
+      console.log(data);
+
       key=data.insertId;
+
       var data2=[req.session.user_id,key];
+
       var sql2 = "insert into User_Coupon(id,coupon_id) values(?)";
+
       connection.query(sql2,[data2],function (err,data) {
+
+      console.log(data);
+
         res.send("Coupon suc!");
+
         connection.release();
       });
+
     });
   });
+});
 
-  app.post('/Join' ,function (req,res,next) {
-    console.log("왓다데이터!!!!!!!!!!!!!!");
-    var id =req.body.id;
-    var password= req.body.password;
-    var name=req.body.name;
-    var age=req.body.age;
-    pool.getConnection(function (err,connection) {
-      var data =[id,password,name,age];
-      var sql = "insert into User(id,password,name,age) values(?)";
-      connection.query(sql,[data],function (err, data) {
-        if (err) console.error("err : " + err);
+app.post('/my_coupon' , function (req,res,next) {
+
+  pool.getConnections(function (err,connection) {
+
+    var sql="select coupon_id from User_Coupon where id=?";
+
+    connection.query(sql,[req.session.user_id],function (err,data) {
+
+      if (err) console.error("err : " + err);
+      console.log(data);
+
+
+    });
+
+  });
+
+});
+
+app.post('/Login',function (req,res) {
+
+  console.log("로그인 들어옴");
+
+  var user = {
+    id:req.body.id,
+    password:req.body.password
+  };
+
+  pool.getConnection(function (err,connection) {
+
+    var sql = "select id,password from User where id=?";
+
+    connection.query(sql,[user.id],function (err,data) {
+
+      for(key in data){
+
         console.log(data);
-        res.send("회원가입 완료!");
-        connection.release();
-      });
+        var db= {
+          key_id:data[key].Id,
+          key_password:data[key].password
+        }
+      }
+      if(data=="")
+      {
+        console.log("10000");
+        res.send("아이디가 존재하지 않습니다.");
+      }
+
+      else if(user.password===db.key_password&&user.id===db.key_id)
+      {
+        console.log("20000");
+        req.session.user_id = user.id;
+        res.cookie('id',req.session.user_id);
+
+        res.send(req.session.user_id);
+
+      }
+      else if (user.password===db.key_password||user.id===db.key_id)
+      {
+        console.log("30000");
+        res.send("다시한번 확인 해주세요.");
+      }
     });
   });
 
-  app.post('/Login',function (req,res) {
-    console.log("로그인 들어옴");
-    var user = {
-      id:req.body.id,
-      password:req.body.password
-    };
+});
 
-    pool.getConnection(function (err,connection) {
-      var sql = "select id,password from User where Id=?";
-      connection.query(sql,[user.id],function (err,data) {
-        for(key in data){
-          console.log(data);
-          var db= {
-            key_id:data[key].Id,
-            key_password:data[key].password
-          }
-        }
-        if(data=="")
-        {
-          console.log("10000");
-          res.send("아이디가 존재하지 않습니다.");
-        }
 
-        else if(user.password===db.key_password&&user.id===db.key_id)
-        {
-          console.log("20000");
-          req.session.user_id = user.id;
-          res.cookie('id',req.session.user_id);
 
-          res.send(req.session.user_id);
+app.post('/Join' ,function (req,res,next) {
 
-        }
-        else if (user.password===db.key_password||user.id===db.key_id)
-        {
-          console.log("30000");
-          res.send("다시한번 확인 해주세요.");
-        }
-      });
+  console.log("왓다데이터!!!!!!!!!!!!!!");
+
+  var id =req.body.id;
+  var password= req.body.password;
+  var name=req.body.name;
+  var age=req.body.age;
+
+  pool.getConnection(function (err,connection) {
+
+    var data =[id,password,name,age];
+    var sql = "insert into User(id,password,name,age) values(?)";
+
+    connection.query(sql,[data],function (err, data) {
+
+      if (err) console.error("err : " + err);
+      console.log(data);
+      res.send("회원가입 완료!");
+      connection.release();
     });
   });
 
-  app.post('/my_coupon' , function (req,res,next) {
-    pool.getConnections(function (err,connection) {
-      var sql="select coupon_id from User_Coupon where id=?";
-      connection.query(sql,[req.session.user_id],function (err,data) {
-        if (err) console.error("err : " + err);
-        console.log(data);
-      });
-    });
-  });
 });
