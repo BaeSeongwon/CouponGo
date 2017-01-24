@@ -19,8 +19,7 @@
 
     function getMyCoupon(){
       var data = couponService.getMyCoupon();
-      console.log(data[0]);
-      console.log(data[1]);
+      console.log(data);
       // myCoupon.datas = JSON.stringify(data);
       // console.log(myCoupon.datas.data[0]);
     }
