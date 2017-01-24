@@ -145,8 +145,7 @@ app.post('/my_coupon' , function (req,res,next) {
 
         connection.query(sql,[name],function (err,data)
         {
-            console.log("data길이 확인");
-            console.log(data.length);
+
 
             var suc = [];
             var judge= 0;
@@ -158,13 +157,15 @@ app.post('/my_coupon' , function (req,res,next) {
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
 
-                    console.log("data확인");
-                    console.log(sucs[0].co_image);
+                    console.log("co_image 확인");
+                    console.log(sucs[i].co_image);
+
                     suc.push(sucs[i].co_image);
 
                     if(judge == data.length - 1){
-                        console.log(suc);
+
                         res.send(suc);
+
                         connection.release();
                     }else{
                         judge++;
