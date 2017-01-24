@@ -162,8 +162,10 @@ var name= "parker";
         console.log(data);
 
       suc.push(data);
+
       if(judge == data.length - 1)
           {
+                console.log("suc확인");
                 console.log(suc);
                 res.send(suc);
                 connection.release();
