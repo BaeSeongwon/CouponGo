@@ -148,13 +148,12 @@ app.post('/my_coupon' , function (req,res,next) {
             console.log("data길이 확인");
             console.log(data.length);
 
-
             var suc = [];
             var judge= 0;
 
             for (var i = 0; i < data.length; i++) {
 
-                var sql2 = "select co_name,co_date,co_content,co_image from Coupon where coupon_id=?";
+                var sql2 = "select co_image from Coupon where coupon_id=?";
 
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
