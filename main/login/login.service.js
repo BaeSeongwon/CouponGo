@@ -7,8 +7,13 @@
   loginService.$inject = ['$http'];
 
   function loginService($http){
+    var LoginInfo = {
+      id: null
+    }
     var service = {
-      login:login
+      login:login,
+      getLoginInfo:getLoginInfo,
+      setLoginInfo:setLoginInfo
     }
 
     return service;
@@ -27,8 +32,17 @@
       };
       $http(info).then(function(data){
           console.log(data);
-          return data;
+          return this.setLoginInfo(data.data);
       })
     }
+  }
+
+  function getLoginInfo(){
+    return LoginInfo
+  }
+
+  function setLoginInfo(id){
+    console.log(id);
+    LoginInfo.id = id;
   }
 })();
