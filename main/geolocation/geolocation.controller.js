@@ -22,7 +22,7 @@
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
     main.getCoupon = getCoupon;
-    main.imgSrc = "?";
+    main.getCouponData = getCouponData;
 
     $("#getCoupon").click(function(){
       console.log("sss");
@@ -274,10 +274,17 @@
       console.log($cookies);
     }
 
-    function getCoupon(title){
-      console.log("??");
-      var data = couponService.getCoupon(title);
-      console.log(couponService.getCoupon(title));
+    function getCouponData(){
+      var data = {
+        co_name: $("#acquire").attr('co_name'),
+        co_date: $('#acquire').attr('co_date'),
+        co_content: $("#acquire").attr('co_content'),
+        co_image: $("#acquire").attr('src')
+      };
+
+      $.post('/resend',data,function(data){
+        console.log(data);
+      })
     }
   }
 })();
