@@ -35,7 +35,7 @@
   }
 })()
 
-$(document).ready(function(){
+$('#mycouponId').ready(function(){
   Kakao.init('289320d14cc1a2285261e420d371c6e7');
   Kakao.Link.createTalkLinkButton({
     container: '#kakao-link-btn',
