@@ -162,7 +162,7 @@ app.post('/my_coupon' , function (req,res,next) {
 
                     if(judge == data.length - 1){
 
-                        res.send(sucs[0].co_image);
+                        res.json({data:sucs[0].co_image});
                         connection.release();
                     }else{
                         judge++;
