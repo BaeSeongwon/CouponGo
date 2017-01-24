@@ -156,6 +156,8 @@ app.post('/my_coupon' , function (req,res,next) {
 
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
+                  console.log("sucs[0].co_image 확인");
+                  console.log(sucs[0].co_image);
 
                     console.log("co_image 확인");
                     console.log(sucs[i].co_image);
