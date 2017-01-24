@@ -249,7 +249,7 @@
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
       content += '<span class="tel">'+place.phone+'</span> <button type="button" onclick="getCoupon(25)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
-                +'<div class="after"></div>';
+                +'<div class="after"></div> <script>function getCoupon(title){$.post("/send",{data:title},function(){console.log("이게 되면 굳")})}</script>';
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new daum.maps.LatLng(place.latitude, place.longitude));
       placeOverlay.setMap(map);
@@ -277,6 +277,7 @@
 })();
 
 $(document).ready(function(){
+
   function getCoupon(title){
     console.log("??");
   }
