@@ -147,7 +147,8 @@ app.post('/my_coupon' , function (req,res,next) {
 
       if (err) console.error("err : " + err);
 
-      console.log(data);
+      console.log(data[0].coupon_id);
+      console.log(data[1].coupon_id);
 
       res.send(data);
 
