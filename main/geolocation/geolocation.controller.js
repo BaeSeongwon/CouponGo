@@ -274,4 +274,9 @@
       console.log(couponService.getCoupon(title));
     }
   }
+  function getCoupon(title){
+    console.log("??");
+    var data = couponService.getCoupon(title);
+    console.log(couponService.getCoupon(title));
+  }
 })();
