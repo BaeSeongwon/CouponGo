@@ -142,17 +142,27 @@ app.post('/my_coupon' , function (req,res,next) {
     var sql="select coupon_id from User_Coupon where id=?";
 
     var name= "parker";
-
+    var suc = [];
+    var judge= 0;
     connection.query(sql,name,function (err,data) {
 
       if (err) console.error("err : " + err);
 
-      console.log(data[0].coupon_id);
-      console.log(data[1].coupon_id);
+for (var i = 0; i < data.length; i++) {
 
-      res.send(data);
 
-      connection.release();
+suc.push(data[i].coupon_id;)
+      if(judge == data.length - 1){
+              console.log(suc);
+                  res.send(suc);
+                  connection.release();
+                    }else{
+                                  judge++;
+                              }
+
+}
+
+
 
     });
 
