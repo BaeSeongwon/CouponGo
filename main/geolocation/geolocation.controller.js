@@ -51,6 +51,7 @@
     //함수 호출부
     addCategoryClickEvent();
     //getGeolocation();
+    main.getId();
 
     drawDaumMap(35.160235,129.1666219);
 
