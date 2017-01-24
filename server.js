@@ -9,12 +9,22 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
-var connection = mysql.createConnection({
-  host: 'hue.c4yiq5vuopvi.ap-northeast-2.rds.amazonaws.com',
+// var connection = mysql.createConnection({
+//   host: 'hue.c4yiq5vuopvi.ap-northeast-2.rds.amazonaws.com',
+//   port: 3306,
+//   user: 'root',
+//   password: 'seongwon9179',
+//   database: 'CouponGo',
+// });
+
+var pool = mysql.createPool({
+  connectionLimit: 15,
   port: 3306,
+  host: 'hue.c4yiq5vuopvi.ap-northeast-2.rds.amazonaws.com',
   user: 'root',
-  password: 'seongwon9179',
   database: 'CouponGo',
+  password: 'seongwon9179'
+
 });
 
 var app = express(app);
