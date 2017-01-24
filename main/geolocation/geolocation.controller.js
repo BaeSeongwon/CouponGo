@@ -7,7 +7,7 @@
 
   mainCtrl.$inject = ['loginService','ngCookies'];
 
-  function mainCtrl(loginService,ngCookies){
+  function mainCtrl(loginService,$cookies){
 
     // 변수 선언부
     var main = this;
