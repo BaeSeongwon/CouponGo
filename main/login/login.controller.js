@@ -6,7 +6,7 @@
 
   loginCtrl.$inject = ['loginService'];
 
-  function loginCtrl(){
+  function loginCtrl(loginService){
     var login = this;
     login.moveMain = moveMain;
     login.beLogin = beLogin;
