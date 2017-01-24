@@ -147,11 +147,6 @@ app.post('/my_coupon' , function (req,res,next) {
         {
 
 
-            var suc = [];
-            var judge= 0;
-
-            for (var i = 0; i<data.length; i++) {
-
                 var sql2 = "select co_image from Coupon where coupon_id=?";
 
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
@@ -160,17 +155,11 @@ app.post('/my_coupon' , function (req,res,next) {
                   console.log(sucs[0].co_image);
 
 
-                    if(judge == data.length - 1){
-
-                        res.json({data:sucs[0].co_image});
-                        connection.release();
-                    }else{
-                        judge++;
-                    }
+                    res.send(sucs[0].co_image);
                 });
 
 
-            }
+
 
 
         });
