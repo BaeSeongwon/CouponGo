@@ -21,7 +21,7 @@
     main.moveBookmark = moveBookmark;
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
-    main.getCoupon = getCoupon;
+    // main.getCoupon = getCoupon;
     main.getCouponData = getCouponData;
 
     $("#getCoupon").click(function(){
