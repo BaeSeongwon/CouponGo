@@ -8,7 +8,8 @@
 
   function couponService($http){
     var service = {
-      getCoupon:getCoupon
+      getCoupon:getCoupon,
+      getMyCoupon:getMyCoupon
     }
 
     return service;
@@ -24,6 +25,21 @@
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       };
+      $http(info).then(function(data){
+        return data;
+      });
+    }
+
+    function getMyCoupon(){
+      var info = {
+        method: 'post',
+        url: '/my_coupon',
+        data: "",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      };
+
       $http(info).then(function(data){
         return data;
       });

@@ -141,11 +141,16 @@ app.post('/my_coupon' , function (req,res,next) {
 
     var sql="select coupon_id from User_Coupon where id=?";
 
-    connection.query(sql,[req.session.user_id],function (err,data) {
+    var name= "parker";
+    connection.query(sql,name,function (err,data) {
 
       if (err) console.error("err : " + err);
+
       console.log(data);
 
+      res.send(data);
+
+      connection.release();
 
     });
 
