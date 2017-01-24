@@ -10,6 +10,7 @@
     var LoginInfo = {
       id: null
     }
+    
     var service = {
       login:login,
       getLoginInfo:getLoginInfo,
@@ -37,7 +38,7 @@
   }
 
   function getLoginInfo(){
-    return LoginInfo
+    return LoginInfo.id;
   }
 
   function setLoginInfo(id){
