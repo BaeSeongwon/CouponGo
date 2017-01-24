@@ -275,10 +275,3 @@
     }
   }
 })();
-
-$(".placeinfo").load(function(){
-  console.log("ff");
-  function getCoupon(title){
-    console.log("??");
-  }
-})
