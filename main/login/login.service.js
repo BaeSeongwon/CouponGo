@@ -32,6 +32,7 @@
       };
       $http(info).then(function(data){
         service.getLoginInfo = data.data;
+        console.log(service.getLoginInfo);
       });
     }
   }
