@@ -157,7 +157,10 @@ var name= "parker";
     connection.query(sql,name,function (err,data)
       {
 
-      suc.push(data[i].coupon_id);
+        console.log("data확인");
+        console.log(data);
+
+      suc.push(data);
       if(judge == data.length - 1)
           {
                 console.log(suc);
