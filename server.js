@@ -157,7 +157,7 @@ app.post('/my_coupon' , function (req,res,next) {
                 connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
 
-                                    console.log(sucs);
+                                    // console.log(sucs);
 
 
                   console.log(sucs[0].co_image);
