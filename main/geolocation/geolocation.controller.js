@@ -281,7 +281,7 @@
         co_content: $("#acquire").attr('co_content'),
         co_image: $("#acquire").attr('src')
       };
-
+      console.log(data);
       $.post('/resend',data,function(data){
         console.log(data);
       })
