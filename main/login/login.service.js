@@ -32,8 +32,8 @@
       };
       $http(info).then(function(data){
           console.log(data);
-          return setLoginInfo(data.data);
-      })
+          setLoginInfo(data.data);
+      });
     }
   }
 
