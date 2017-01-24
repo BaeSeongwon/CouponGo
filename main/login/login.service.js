@@ -4,9 +4,9 @@
   angular.module('app')
          .service('loginService',loginService);
 
-  loginService.$inject = ['$http'];
+  loginService.$inject = ['$http','ngCookies'];
 
-  function loginService($http){
+  function loginService($http,ngCookies){
     var service = {
       login:login,
       getLoginInfo:getLoginInfo
@@ -31,8 +31,6 @@
         }
       };
       $http(info).then(function(data){
-        service.getLoginInfo = data.data;
-        console.log(service.getLoginInfo);
       });
     }
   }

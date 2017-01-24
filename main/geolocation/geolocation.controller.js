@@ -5,9 +5,9 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = ['loginService'];
+  mainCtrl.$inject = ['loginService','ngCookies'];
 
-  function mainCtrl(loginService){
+  function mainCtrl(loginService,ngCookies){
 
     // 변수 선언부
     var main = this;
@@ -21,8 +21,6 @@
     main.moveBookmark = moveBookmark;
     main.loginInfo = loginService.getLoginInfo;
     main.getId = getId;
-
-    main.getId();
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
@@ -259,7 +257,8 @@
     }
 
     function getId(){
-      main.loginInfo = loginService.getLoginInfo;
+      main.loginInfo = $cookies.get('id');
+      console.log(main.loginInfo);
     }
   }
 })();
