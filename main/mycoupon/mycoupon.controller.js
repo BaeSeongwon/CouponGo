@@ -47,7 +47,7 @@ $(document).ready(function(){
     },
     webButton: {
       text: '카카오 디벨로퍼스',
-      url: 'http://http://ec2-52-78-41-172.ap-northeast-2.compute.amazonaws.com/'
+      url: 'http://ec2-52-78-41-172.ap-northeast-2.compute.amazonaws.com/'
     }
   });
 })
