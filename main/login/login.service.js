@@ -36,7 +36,7 @@
   }
 
   function getLoginInfo(){
-    console.log(test);
+    console.log(this.test);
     return this.LoginInfo.id;
   }
 
