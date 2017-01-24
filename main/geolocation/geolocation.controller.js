@@ -20,8 +20,9 @@
     main.moveLogin = moveLogin;
     main.moveBookmark = moveBookmark;
     main.loginInfo = loginService.getLoginInfo;
+    main.getId = getId;
 
-    console.log(loginService.getLoginInfo);
+    main.getId();
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
@@ -255,6 +256,10 @@
 
     function moveBookmark(){
       window.location.href = "http://ec2-52-78-41-172.ap-northeast-2.compute.amazonaws.com/#!/bookmark"
+    }
+
+    function getId(){
+      main.loginInfo = loginService.getLoginInfo;
     }
   }
 })();
