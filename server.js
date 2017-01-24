@@ -159,7 +159,7 @@ app.post('/my_coupon' , function (req,res,next) {
                 {
 
                     console.log("data확인");
-                    console.log(sucs);
+                    console.log(sucs[0].co_image);
                     suc.push(sucs);
 
                     if(judge == data.length - 1){
