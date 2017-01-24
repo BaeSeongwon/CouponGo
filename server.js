@@ -19,6 +19,14 @@ var connection = mysql.createConnection({
 
 var app = express(app);
 app.use(express.static(__dirname));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(session({
+  secret :'subin',
+  resave :false,
+  saveUninitialized: true
+}));
 
 http.createServer(app).listen(80,function(){
   connection.connect(function(err){
@@ -139,6 +147,8 @@ app.post('/my_coupon' , function (req,res,next) {
 app.post('/Login',function (req,res) {
 
   console.log("로그인 들어옴");
+
+  console.log(req.body);
 
   var user = {
     id:req.body.id,
