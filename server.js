@@ -166,7 +166,6 @@ app.post('/Login',function (req,res) {
 
       for(key in data){
 
-        console.log(data);
         var db= {
           key_id:data[key].Id,
           key_password:data[key].password
@@ -177,8 +176,11 @@ app.post('/Login',function (req,res) {
         console.log("10000");
         res.send("아이디가 존재하지 않습니다.");
       }
+console.log("key확인");
+console.log(db.key_password);
+console.log(db.key_id);
 
-      else if(user.password===db.key_password&&user.id===db.key_id)
+      else if(user.password==db.key_password&&user.id==db.key_id)
       {
         console.log("20000");
         req.session.user_id = user.id;
