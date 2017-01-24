@@ -160,6 +160,7 @@ app.post('/my_coupon' , function (req,res,next) {
                   suc+=sucs[0].co_image;
 
                   if(suc.length==data.length){
+                    console.log(suc);
                     res.send(suc);
                   }
 
