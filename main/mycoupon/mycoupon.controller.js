@@ -4,9 +4,9 @@
   angular.module('app')
          .controller('mycouponCtrl',mycouponCtrl);
 
-  mycouponCtrl.$inject = ['couponService','$timeout'];
+  mycouponCtrl.$inject = ['couponService','$http'];
 
-  function mycouponCtrl(couponService,$timeout){
+  function mycouponCtrl(couponService,$http){
     var myCoupon = this;
     myCoupon.moveMain = moveMain;
     myCoupon.getMyCoupon = getMyCoupon;
@@ -18,12 +18,19 @@
     }
 
     function getMyCoupon(){
-      myCoupon.data = couponService.getMyCoupon();
-      console.log(couponService.getMyCoupon());
-      $timeout(function(){
+      var info = {
+        method: 'post',
+        url: '/my_coupon',
+        data: "",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      };
 
-      },1000,true);
-
+      $http(info).then(function(data){
+        myCoupon.data = data.data;
+        console.log(myCoupon.data);
+      });
     }
   }
 })()
