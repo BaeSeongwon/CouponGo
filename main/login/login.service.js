@@ -7,10 +7,10 @@
   loginService.$inject = ['$http'];
 
   function loginService($http){
-    var LoginInfo = {
+    LoginInfo = {
       id: null
     }
-    
+
     var service = {
       login:login,
       getLoginInfo:getLoginInfo,
