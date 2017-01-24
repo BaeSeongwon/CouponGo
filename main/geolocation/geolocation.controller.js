@@ -259,7 +259,7 @@
 
     function getId(){
       main.loginInfo = $cookies.get('id');
-      console.log(main.loginInfo);
+      console.log($cookies.get('id'));
     }
   }
 })();
