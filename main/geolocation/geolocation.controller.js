@@ -5,7 +5,7 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = ['loginService','$cookies','couponService',$scope];
+  mainCtrl.$inject = ['loginService','$cookies','couponService','$scope'];
 
   function mainCtrl(loginService,$cookies,couponService,$scope){
 
