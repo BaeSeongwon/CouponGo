@@ -32,7 +32,7 @@
       };
       $http(info).then(function(data){
           console.log(data);
-          return this.setLoginInfo(data.data);
+          return setLoginInfo(data.data);
       })
     }
   }
