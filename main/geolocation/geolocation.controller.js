@@ -5,7 +5,7 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = ['loginService','ngCookies'];
+  mainCtrl.$inject = ['loginService'];
 
   function mainCtrl(loginService,$cookies){
 
