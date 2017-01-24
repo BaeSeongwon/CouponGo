@@ -5,9 +5,9 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = ['loginService','$cookies','couponService'];
+  mainCtrl.$inject = ['loginService','$cookies','couponService',$scope];
 
-  function mainCtrl(loginService,$cookies,couponService){
+  function mainCtrl(loginService,$cookies,couponService,$scope){
 
     // 변수 선언부
     var main = this;
