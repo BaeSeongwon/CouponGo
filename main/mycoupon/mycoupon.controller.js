@@ -4,9 +4,9 @@
   angular.module('app')
          .controller('mycouponCtrl',mycouponCtrl);
 
-  mycouponCtrl.$inject = ['couponService'];
+  mycouponCtrl.$inject = ['couponService','$timeout'];
 
-  function mycouponCtrl(couponService){
+  function mycouponCtrl(couponService,$timeout){
     var myCoupon = this;
     myCoupon.moveMain = moveMain;
     myCoupon.getMyCoupon = getMyCoupon;
@@ -19,7 +19,9 @@
 
     function getMyCoupon(){
       myCoupon.data = couponService.getMyCoupon();
-      console.log(myCoupon.data);
+      $timeout(function(){
+        console.log(myCoupon.data);
+      },1000,true);
     }
   }
 })()
