@@ -23,6 +23,11 @@
     main.getId = getId;
     main.getCoupon = getCoupon;
 
+    $("#getCoupon").click(function(){
+      console.log("sss");
+      couponService.getCoupon();
+    })
+
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});
 
@@ -243,7 +248,7 @@
       }else{
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-      content += '<span class="tel">'+place.phone+'</span> <button type="button" ng-click="main.getCoupon('+ place.title +')" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
+      content += '<span class="tel">'+place.phone+'</span> <button type="button" id="getCoupon" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
                 +'<div class="after"></div>';
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new daum.maps.LatLng(place.latitude, place.longitude));
