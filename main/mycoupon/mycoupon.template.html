@@ -13,6 +13,27 @@
       <div style="text-align:center;">
         <img src="{{data}}" alt="" style="background-size:cover; width: 250px; height:250px;">
       </div>
+      <div>
+        <a id="kakao-link-btn" href="javascript:;">
+         <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"  style="width: 70px;">
+       </a>
+      </div>
     </li>
   </ul>
 </div>
+<script type='text/javascript'>
+  Kakao.init('289320d14cc1a2285261e420d371c6e7');
+  Kakao.Link.createTalkLinkButton({
+    container: '#kakao-link-btn',
+    label: '카카오링크 샘플에 오신 것을 환영합니다.',
+    image: {
+      src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+      width: '300',
+      height: '200'
+    },
+    webButton: {
+      text: '카카오 디벨로퍼스',
+      url: 'https://192.168.0.3/kakao.html'
+    }
+  });
+</script>
