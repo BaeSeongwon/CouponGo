@@ -23,6 +23,7 @@
     main.getId = getId;
     // main.getCoupon = getCoupon;
     main.getCouponData = getCouponData;
+    main.moveMyCoupon = moveMyCoupon;
 
     $("#getCoupon").click(function(){
       console.log("sss");
