@@ -274,10 +274,7 @@
       console.log(couponService.getCoupon(title));
     }
   }
-  $(document).ready(function(){
-    function getCoupon(title){
-      console.log("??");
-    }
-  });
-
+  function getCoupon(title){
+    console.log("??");
+  }
 })();
