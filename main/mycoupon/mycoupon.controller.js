@@ -20,7 +20,7 @@
     function getMyCoupon(){
       var data = couponService.getMyCoupon();
       myCoupon.datas = data;
-      console.log(data[0]);
+      console.log(data['Object']);
     }
   }
 })()
