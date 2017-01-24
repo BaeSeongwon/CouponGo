@@ -137,55 +137,50 @@ app.post('/resend' ,function (req,res,next) {
 
 app.post('/my_coupon' , function (req,res,next) {
 
-var name= "parker";
+    var name= "parker";
 
-  pool.getConnection(function (err,connection) {
+    pool.getConnection(function (err,connection) {
 
-    var sql="select coupon_id from User_Coupon where id=?";
+        var sql="select coupon_id from User_Coupon where id=?";
 
-    connection.query(sql,name,function (err,data)
-{
-  console.log("data길이 확인");
-  console.log(data.length);
-  var suc = [];
-  var judge= 0;
-
-  for (var i = 0; i < data.length; i++) {
+        connection.query(sql,[name],function (err,data)
+        {
+            console.log("data길이 확인");
+            console.log(data.length);
 
 
-  var sql2 = "select co_name,co_date,co_content,co_image from Coupon where coupon_id=?";
+            var suc = [];
+            var judge= 0;
 
-    connection.query(sql2,data[i].coupon_id,function (err,data)
-      {
+            for (var i = 0; i < data.length; i++) {
 
-        console.log("data확인");
-        console.log(data);
+                var sql2 = "select co_name,co_date,co_content,co_image from Coupon where coupon_id=?";
 
-      suc.push(data);
+                connection.query(sql2,data[i].coupon_id,function (err,sucs)
+                {
 
-      if(judge == data.length - 1)
-          {
-                console.log("suc확인");
-                console.log(suc);
-                res.send(suc);
-                connection.release();
+                    console.log("data확인");
+                    console.log(sucs);
+                    suc.push(sucs);
 
-              }
-
-                  else{
-                          judge++;
-                        }
-                      });
-
-
-  }
+                    if(judge == data.length - 1){
+                        console.log(suc);
+                        res.send(suc);
+                        connection.release();
+                    }else{
+                        judge++;
+                    }
+                });
 
 
-});
+            }
+
+
+        });
 
 
 
-  });
+    });
 
 });
 
