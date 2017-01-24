@@ -253,7 +253,7 @@
       }else{
         content += '<span title="'+place.address+'">'+place.address+'</span>';
       }
-      content += '<span class="tel">'+place.phone+'</span> <button type="button" onclick="$.post(\'/send\',{data:\''+place.title+'\'},function(data){$scope.$apply(); main.imgSrc = data; });" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
+      content += '<span class="tel">'+place.phone+'</span> <button type="button" onclick="$.post(\'/send\',{data:\''+place.title+'\'},function(data){$(\'#img\').attr("src",data.co_image) });" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">쿠폰 발급</button> '+'</div>'
                 +'<div class="after"></div><script></script>';
       contentNode.innerHTML = content;
       console.log(contentNode);
