@@ -137,6 +137,8 @@ app.post('/resend' ,function (req,res,next) {
 
 app.post('/my_coupon' , function (req,res,next) {
 
+var name= "parker";
+
   pool.getConnection(function (err,connection) {
 
     var sql="select coupon_id from User_Coupon where id=?";
@@ -144,7 +146,7 @@ app.post('/my_coupon' , function (req,res,next) {
     connection.query(sql,name,function (err,data)
 {
 
-  var name= "parker";
+
   var suc = [];
   var judge= 0;
 
