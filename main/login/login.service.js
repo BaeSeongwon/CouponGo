@@ -31,7 +31,6 @@
         }
       };
       $http(info).then(function(data){
-          console.log(data);
           setLoginInfo(data.data);
       });
     }
@@ -42,7 +41,6 @@
   }
 
   function setLoginInfo(id){
-    console.log(id);
     LoginInfo.id = id;
   }
 })();

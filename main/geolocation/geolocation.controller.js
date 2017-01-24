@@ -5,9 +5,9 @@
     .module('app')
     .controller('mainCtrl',mainCtrl);
 
-  mainCtrl.$inject = [];
+  mainCtrl.$inject = ['loginService'];
 
-  function mainCtrl(){
+  function mainCtrl(loginService){
 
     // 변수 선언부
     var main = this;
@@ -19,6 +19,7 @@
     main.category = false;
     main.moveLogin = moveLogin;
     main.moveBookmark = moveBookmark;
+    main.loginInfo = loginService.getLoginInfo;
 
     // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
     var placeOverlay = new daum.maps.CustomOverlay({zIndex:1});

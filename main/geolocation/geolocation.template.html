@@ -2,9 +2,13 @@
   <div class="shadow" ng-class="main.shadow ? 'shadow-block' : 'shadow-none'"></div>
   <article class="sideMenue" ng-class="main.sideCheck ? 'fadeInLeft animated' : 'fadeOutLeft animated'">
     <ul>
-      <li ng-click="main.moveLogin()">
+      <li ng-click="main.moveLogin()" ng-if="main.loginInfo == null">
         <img src="public/img/profile.png" class="profile">
         <span class="menueText">로그인하세요</span>
+      </li>
+      <li ng-click="main.moveLogin()" ng-if="main.loginInfo != null">
+        <img src="public/img/profile.png" class="profile">
+        <span class="menueText">{{main.loginInfo}}</span>
       </li>
       <hr>
       <li>
