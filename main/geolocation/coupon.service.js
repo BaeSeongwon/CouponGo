@@ -41,8 +41,7 @@
       };
 
       $http(info).then(function(data){
-        console.log(data.data[0]);
-        return data;
+        return data.data;
       });
     }
   }
