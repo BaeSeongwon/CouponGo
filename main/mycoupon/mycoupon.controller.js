@@ -19,9 +19,11 @@
 
     function getMyCoupon(){
       myCoupon.data = couponService.getMyCoupon();
+      console.log(couponService.getMyCoupon());
       $timeout(function(){
-        console.log(myCoupon.data);
+
       },1000,true);
+
     }
   }
 })()
