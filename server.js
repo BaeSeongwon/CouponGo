@@ -151,15 +151,16 @@ app.post('/my_coupon' , function (req,res,next) {
 for (var i = 0; i < data.length; i++) {
 
 
-suc.push(data[i].coupon_id;)
+suc.push(data[i].coupon_id);
       if(judge == data.length - 1){
-              console.log(suc);
-                  res.send(suc);
-                  connection.release();
-                    }else{
-                                  judge++;
-                              }
+            console.log(suc);
+            res.send(suc);
+            connection.release();
+            }
 
+              else{
+                      judge++;
+                    }
 }
 
 
