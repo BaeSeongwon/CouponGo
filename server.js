@@ -154,10 +154,8 @@ var name= "parker";
 
 
   var sql2 = "select co_name,co_date,co_content,co_img from Coupon where coupon_id=?";
-    console.log("coupon_id확인");
-    console.log(data[i].coupon_id);
-    var data2=[data[i].coupon_id];
-    connection.query(sql2,name,function (err,data)
+
+    connection.query(sql2,data[i].coupon_id,function (err,data)
       {
 
         console.log("data확인");
