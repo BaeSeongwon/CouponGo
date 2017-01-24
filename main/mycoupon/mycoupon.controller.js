@@ -19,7 +19,8 @@
 
     function getMyCoupon(){
       var data = couponService.getMyCoupon();
-      console.log(data);
+      myCoupon.datas = data.data;
+      console.log(myCoupon.datas);
     }
   }
 })()
