@@ -153,8 +153,10 @@ var name= "parker";
   for (var i = 0; i < data.length; i++) {
 
 
-  var sql2 = "select co_name,co_date,co_content,co_img from Coupon where id=?";
-
+  var sql2 = "select co_name,co_date,co_content,co_img from Coupon where coupon_id=?";
+    console.log("coupon_id확인");
+    console.log(data[i].coupon_id);
+    var data2=[data[i].coupon_id];
     connection.query(sql2,name,function (err,data)
       {
 
