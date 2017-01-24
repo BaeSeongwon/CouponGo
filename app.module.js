@@ -21,5 +21,10 @@
       controller: 'bookmarkCtrl',
       controllerAs: 'bookmark'
     })
+    .when('/myCoupon',{
+      templateUrl: 'main/mycoupon/mycoupon.template.html',
+      controller: 'mycouponCtrl',
+      controllerAs: 'myCoupon'
+    })
   }
 })();
