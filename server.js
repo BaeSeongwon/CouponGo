@@ -147,20 +147,27 @@ app.post('/my_coupon' , function (req,res,next) {
         {
 
 
-console.log(data[0].co_image);
+            var suc = [];
+
+
+            for (var i = 0; i<data.length; i++) {
+
                 var sql2 = "select co_image from Coupon where coupon_id=?";
 
-                connection.query(sql2,data[0].coupon_id,function (err,sucs)
+                connection.query(sql2,data[i].coupon_id,function (err,sucs)
                 {
-                  console.log("sucs.co_image ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ");
-                  console.log(sucs[0].co_image);
+
+                  suc+=sucs[0].co_image;
+
+                  if(suc.length==data.length){
+                    res.send(suc);
+                  }
 
 
-                    res.send(sucs[0].co_image);
                 });
 
 
-
+            }
 
 
         });
