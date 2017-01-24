@@ -163,24 +163,24 @@ app.post('/my_coupon' , function (req,res,next) {
 
                                     console.log(sucs[0].co_image);
 
-                    // console.log("co_image 확인");
-                    // console.log(sucs[i].co_image);
-                    //
-                    // suc.push(sucs[i].co_image);
-                    //
-                    // if(judge == data.length - 1){
-                    //
-                    //     res.send(suc);
-                    //
-                    //     connection.release();
-                    // }else{
-                    //     judge++;
-                    // }
+                    console.log("co_image 확인");
+                    console.log(sucs[i].co_image);
+
+                    suc.push(sucs[i].co_image);
+
+                    if(judge == data.length - 1){
+
+                        res.send(sucs[0].co_image);
+
+                        connection.release();
+                    }else{
+                        judge++;
+                    }
                 });
 
 
             }
-                res.send(sucs[0].co_image);
+
 
         });
 
