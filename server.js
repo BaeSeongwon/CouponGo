@@ -137,11 +137,12 @@ app.post('/resend' ,function (req,res,next) {
 
 app.post('/my_coupon' , function (req,res,next) {
 
-  pool.getConnections(function (err,connection) {
+  pool.getConnection(function (err,connection) {
 
     var sql="select coupon_id from User_Coupon where id=?";
 
     var name= "parker";
+
     connection.query(sql,name,function (err,data) {
 
       if (err) console.error("err : " + err);
